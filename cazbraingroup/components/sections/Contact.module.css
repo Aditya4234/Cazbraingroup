@@ -1,0 +1,116 @@
+.wrapper {
+    display: grid;
+    gap: 4rem;
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 4rem;
+    border-radius: 20px;
+    color: white;
+}
+
+.heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.description {
+    font-size: 1.125rem;
+    color: #a0a0a0;
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.stats {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.emailRow {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.emailLabel {
+    color: #a0a0a0;
+    font-weight: 600;
+}
+
+.emailValue {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.emailValue:hover {
+    text-decoration: underline;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.statValue {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.statLabel {
+    color: #a0a0a0;
+}
+
+.form {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    color: var(--foreground);
+}
+
+.formGroup {
+    margin-bottom: 1.5rem;
+}
+
+.label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.textarea {
+    resize: vertical;
+}
+
+@media (min-width: 1024px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        padding: 2rem;
+    }
+}

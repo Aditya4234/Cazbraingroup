@@ -1,0 +1,111 @@
+"use client";
+
+import { useState } from "react";
+import { Send } from "lucide-react";
+import styles from "./Contact.module.css";
+
+export function Contact() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        message: ""
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        const subject = encodeURIComponent(`Contact from ${formData.name}`);
+        const body = encodeURIComponent(
+            `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        );
+        window.location.href = `mailto:adityagupta200807@gmail.com?subject=${subject}&body=${body}`;
+
+        setTimeout(() => {
+            setIsSubmitting(false);
+            setFormData({ name: "", email: "", message: "" });
+        }, 1000);
+    };
+
+    return (
+        <section className="section" id="contact">
+            <div className="container">
+                <div className={styles.wrapper}>
+                    <div className={styles.info}>
+                        <h2 className={styles.heading}>Let's Build Something Amazing Together</h2>
+                        <p className={styles.description}>
+                            Ready to start your project? Contact us today for a free consultation and quote.
+                        </p>
+
+                        <div className={styles.stats}>
+                            <div className={styles.stat}>
+                                <span className={styles.statValue}>30min</span>
+                                <span className={styles.statLabel}>Free Consultation</span>
+                            </div>
+                            <div className={styles.stat}>
+                                <span className={styles.statValue}>24h</span>
+                                <span className={styles.statLabel}>Response Time</span>
+                            </div>
+                        </div>
+                        <div className={styles.emailRow}>
+                            <span className={styles.emailLabel}>Email:</span>
+                            <a href="mailto:adityagupta200807@gmail.com" className={styles.emailValue}>
+                                adityagupta200807@gmail.com
+                            </a>
+                        </div>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className={styles.form}>
+                        <div className={styles.formGroup}>
+                            <label htmlFor="name" className={styles.label}>Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                required
+                                className={styles.input}
+                                value={formData.name}
+                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                                placeholder="John Doe"
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label htmlFor="email" className={styles.label}>Email</label>
+                            <input
+                                type="email"
+                                id="email"
+                                required
+                                className={styles.input}
+                                value={formData.email}
+                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                placeholder="john@example.com"
+                            />
+                        </div>
+
+                        <div className={styles.formGroup}>
+                            <label htmlFor="message" className={styles.label}>Message</label>
+                            <textarea
+                                id="message"
+                                required
+                                className={styles.textarea}
+                                value={formData.message}
+                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                placeholder="Tell us about your project..."
+                                rows={4}
+                            />
+                        </div>
+
+                        <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+                            {isSubmitting ? "Sending..." : (
+                                <>
+                                    Send Message <Send size={18} className="ml-2" />
+                                </>
+                            )}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    );
+}

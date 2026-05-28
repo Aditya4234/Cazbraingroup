@@ -1,0 +1,112 @@
+.heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--foreground);
+}
+
+.subheading {
+    font-size: 1.125rem;
+    color: var(--muted-foreground);
+    max-width: 600px;
+    margin: 0 auto;
+    padding-bottom: 1rem;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    color: var(--muted-foreground);
+    background-color: white;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.tab:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.activeTab {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.activeTab:hover {
+    background-color: var(--primary-hover);
+    color: white;
+}
+
+.content {
+    min-height: 200px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    justify-items: center;
+}
+
+.techItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 180px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+    transition: transform 0.2s ease;
+}
+
+.techItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.iconWrapper {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.techIcon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.techName {
+    font-weight: 600;
+    color: var(--foreground);
+}
+
+@media (min-width: 640px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
