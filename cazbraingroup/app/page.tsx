@@ -8,8 +8,7 @@ import { CaseStudies } from "@/components/sections/CaseStudies";
 import { Process } from "@/components/sections/Process";
 import { Insights } from "@/components/sections/Insights";
 import { Testimonials } from "@/components/sections/Testimonials";
-import { Contact } from "@/components/sections/Contact";
-
+import ContactForm from "@/components/sections/Contact"
 export default function Home() {
   return (
     <>
@@ -23,7 +22,7 @@ export default function Home() {
       <Process />
       <Insights />
       <Testimonials />
-      <Contact />
+      <ContactForm />
     </>
   );
 }

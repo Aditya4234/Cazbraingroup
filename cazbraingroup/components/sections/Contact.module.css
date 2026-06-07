@@ -22,6 +22,11 @@
     line-height: 1.6;
 }
 
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
 .stats {
     display: flex;
     gap: 2rem;
@@ -156,6 +161,37 @@
     .heading {
         font-size: 2.5rem;
     }
+}
+
+.submitBtn {
+    width: 100%;
+    padding: 0.85rem 1.5rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.submitBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.submitBtn:active {
+    transform: translateY(0);
+}
+
+.result {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary);
 }
 
 @media (max-width: 400px) {
