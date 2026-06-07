@@ -1,5 +1,5 @@
 .section {
-    padding: 3rem 0;
+    padding: 2rem 0;
     background-color: #f9f9f9;
     border-bottom: 1px solid var(--border);
 }
@@ -7,15 +7,16 @@
 .label {
     text-align: center;
     color: var(--muted-foreground);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     font-weight: 500;
+    font-size: 0.9rem;
 }
 
 .grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3rem;
+    gap: 1.5rem;
     align-items: center;
 }
 
@@ -32,7 +33,26 @@
 }
 
 .logoText {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
     color: #333;
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 3rem 0;
+    }
+
+    .label {
+        margin-bottom: 2rem;
+        font-size: 1rem;
+    }
+
+    .grid {
+        gap: 3rem;
+    }
+
+    .logoText {
+        font-size: 1.5rem;
+    }
 }

@@ -1,7 +1,6 @@
 .hero {
-    padding: calc(var(--header-height) + 4rem) 0 4rem;
-    background: linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
-    overflow: hidden;
+    padding: calc(var(--header-height) + 3rem) 0 3rem;
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
 }
 
 .content {
@@ -10,10 +9,14 @@
     align-items: center;
 }
 
+.textContent {
+    max-width: 640px;
+}
+
 .title {
-    font-size: 2.5rem;
-    line-height: 1.2;
+    font-size: 2rem;
     font-weight: 800;
+    line-height: 1.15;
     margin-bottom: 1.5rem;
     color: var(--foreground);
 }
@@ -24,29 +27,27 @@
 
 .subtitle {
     font-size: 1.125rem;
+    line-height: 1.6;
     color: var(--muted-foreground);
     margin-bottom: 2rem;
-    line-height: 1.6;
-    max-width: 600px;
 }
 
 .ctaGroup {
     display: flex;
     gap: 1rem;
-    margin-bottom: 3rem;
     flex-wrap: wrap;
+    margin-bottom: 3rem;
 }
 
 .secondaryBtn {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
     font-weight: 600;
-    transition: all 0.2s ease;
     border: 1px solid var(--border);
     color: var(--foreground);
+    transition: all 0.2s ease;
 }
 
 .secondaryBtn:hover {
@@ -57,6 +58,7 @@
 .stats {
     display: flex;
     gap: 2rem;
+    flex-wrap: wrap;
     padding-top: 2rem;
     border-top: 1px solid var(--border);
 }
@@ -69,13 +71,13 @@
 }
 
 .statNumber {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 800;
     color: var(--foreground);
 }
 
 .statLabel {
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     color: var(--muted-foreground);
 }
 
@@ -116,6 +118,20 @@
     border-radius: 50%;
 }
 
+@media (min-width: 640px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .statNumber {
+        font-size: 1.5rem;
+    }
+
+    .statLabel {
+        font-size: 0.875rem;
+    }
+}
+
 @media (min-width: 768px) {
     .hero {
         padding: calc(var(--header-height) + 6rem) 0 6rem;
@@ -123,9 +139,14 @@
 
     .content {
         grid-template-columns: 1.2fr 0.8fr;
+        gap: 4rem;
     }
 
     .title {
         font-size: 3.5rem;
+    }
+
+    .stats {
+        gap: 3rem;
     }
 }

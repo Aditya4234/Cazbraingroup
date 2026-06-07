@@ -1,37 +1,34 @@
 .heading {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
+    font-size: 1.75rem;
+    font-weight: 800;
     color: var(--foreground);
 }
 
 .carousel {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 1rem;
     max-width: 900px;
     margin: 0 auto;
 }
 
 .navBtn {
+    display: none;
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: white;
     border: 1px solid var(--border);
-    display: flex;
+    background-color: white;
     align-items: center;
     justify-content: center;
-    color: var(--foreground);
     transition: all 0.2s;
     flex-shrink: 0;
 }
 
 .navBtn:hover {
-    background-color: var(--primary);
-    color: white;
+    background-color: var(--muted);
     border-color: var(--primary);
+    color: var(--primary);
 }
 
 .cardWrapper {
@@ -41,22 +38,22 @@
 
 .card {
     background-color: white;
-    padding: 3rem;
-    border-radius: 12px;
+    padding: 2rem;
+    border-radius: 16px;
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
 .quoteIcon {
-    color: rgba(246, 97, 53, 0.1);
+    color: var(--primary);
+    opacity: 0.3;
     margin-bottom: 1.5rem;
 }
 
 .text {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    color: var(--foreground);
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--muted-foreground);
     margin-bottom: 2rem;
     font-style: italic;
 }
@@ -69,8 +66,8 @@
 }
 
 .avatar {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
 }
@@ -78,7 +75,7 @@
 .name {
     font-weight: 700;
     color: var(--foreground);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.15rem;
 }
 
 .role {
@@ -103,16 +100,32 @@
 
 .activeDot {
     background-color: var(--primary);
-    width: 24px;
-    border-radius: 5px;
 }
 
-@media (max-width: 768px) {
-    .navBtn {
-        display: none;
+@media (min-width: 480px) {
+    .heading {
+        font-size: 2rem;
     }
 
     .card {
-        padding: 2rem;
+        padding: 2.5rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .heading {
+        font-size: 2.5rem;
+    }
+
+    .navBtn {
+        display: flex;
+    }
+
+    .card {
+        padding: 3rem;
+    }
+
+    .text {
+        font-size: 1.25rem;
     }
 }

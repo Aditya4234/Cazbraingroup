@@ -1,37 +1,39 @@
 .wrapper {
     display: grid;
-    gap: 4rem;
+    gap: 2rem;
     align-items: center;
     background-color: #1a1a1a;
-    padding: 4rem;
+    padding: 2rem;
     border-radius: 20px;
     color: white;
 }
 
 .heading {
-    font-size: 2.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     color: white;
 }
 
 .description {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: #a0a0a0;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     line-height: 1.6;
 }
 
 .stats {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
     margin-bottom: 1.5rem;
+    flex-wrap: wrap;
 }
 
 .emailRow {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .emailLabel {
@@ -43,6 +45,7 @@
     color: var(--primary);
     text-decoration: none;
     font-weight: 500;
+    word-break: break-all;
 }
 
 .emailValue:hover {
@@ -55,24 +58,25 @@
 }
 
 .statValue {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary);
 }
 
 .statLabel {
     color: #a0a0a0;
+    font-size: 0.85rem;
 }
 
 .form {
     background-color: white;
-    padding: 2.5rem;
+    padding: 1.5rem;
     border-radius: 12px;
     color: var(--foreground);
 }
 
 .formGroup {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .label {
@@ -114,14 +118,60 @@
     margin-top: 0.3rem;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
     .wrapper {
-        grid-template-columns: 1fr 1fr;
+        padding: 3rem;
+        gap: 3rem;
+    }
+
+    .heading {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1.125rem;
+        margin-bottom: 3rem;
+    }
+
+    .stats {
+        gap: 3rem;
+    }
+
+    .statValue {
+        font-size: 2rem;
+    }
+
+    .form {
+        padding: 2.5rem;
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1024px) {
     .wrapper {
-        padding: 2rem;
+        grid-template-columns: 1fr 1fr;
+        padding: 4rem;
+        gap: 4rem;
+    }
+
+    .heading {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .wrapper {
+        padding: 1.5rem;
+    }
+
+    .form {
+        padding: 1.25rem;
+    }
+
+    .stats {
+        gap: 1.5rem;
+    }
+
+    .statValue {
+        font-size: 1.25rem;
     }
 }
