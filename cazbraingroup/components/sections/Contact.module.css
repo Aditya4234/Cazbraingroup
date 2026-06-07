@@ -103,6 +103,17 @@
     resize: vertical;
 }
 
+.inputError {
+    border-color: #dc2626 !important;
+}
+
+.errorText {
+    display: block;
+    color: #dc2626;
+    font-size: 0.8rem;
+    margin-top: 0.3rem;
+}
+
 @media (min-width: 1024px) {
     .wrapper {
         grid-template-columns: 1fr 1fr;
