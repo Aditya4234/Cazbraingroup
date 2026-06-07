@@ -20,8 +20,11 @@
 }
 
 .logoWrapper {
+    display: block;
     opacity: 0.6;
     transition: opacity 0.2s;
+    text-decoration: none;
+    color: inherit;
 }
 
 .logoWrapper:hover {

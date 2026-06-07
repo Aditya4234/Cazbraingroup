@@ -32,18 +32,18 @@ export function Hero() {
                         </div>
 
                         <div className={styles.stats}>
-                            <div className={styles.statItem}>
+                            <Link href="/company" className={styles.statItem}>
                                 <span className={styles.statNumber}>100+</span>
                                 <span className={styles.statLabel}>Projects Delivered</span>
-                            </div>
-                            <div className={styles.statItem}>
+                            </Link>
+                            <Link href="/company" className={styles.statItem}>
                                 <span className={styles.statNumber}>50+</span>
                                 <span className={styles.statLabel}>Experts</span>
-                            </div>
-                            <div className={styles.statItem}>
+                            </Link>
+                            <Link href="/company" className={styles.statItem}>
                                 <span className={styles.statNumber}>98%</span>
                                 <span className={styles.statLabel}>Client Retention</span>
-                            </div>
+                            </Link>
                         </div>
                     </motion.div>
 
@@ -53,14 +53,16 @@ export function Hero() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}
                     >
-                        <Image
-                            src="/image/image.png"
-                            alt="CazBrainGroup Hero"
-                            width={600}
-                            height={500}
-                            className={styles.heroImage}
-                            priority
-                        />
+                        <Link href="/work">
+                            <Image
+                                src="/image/image.png"
+                                alt="CazBrainGroup Hero"
+                                width={600}
+                                height={500}
+                                className={styles.heroImage}
+                                priority
+                            />
+                        </Link>
                     </motion.div>
                 </div>
             </div>

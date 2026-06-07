@@ -24,6 +24,8 @@
 }
 
 .card {
+    text-decoration: none;
+    color: inherit;
     background-color: white;
     padding: 2rem;
     border-radius: 8px;

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Smartphone, Globe, Database, Cloud, Layout, Server } from "lucide-react";
+import Link from "next/link";
 import styles from "./TechStack.module.css";
 import { cn } from "@/lib/utils";
 
@@ -41,7 +42,7 @@ const technologies = {
     ],
     cms: [
         { name: "WordPress", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" },
-        { name: "Shopify", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/woocommerce/woocommerce-original.svg" }, // Using woo icon as proxy or generic
+        { name: "Shopify", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/woocommerce/woocommerce-original.svg" },
         { name: "Magento", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/magento/magento-original.svg" },
         { name: "Drupal", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/drupal/drupal-original.svg" },
     ],
@@ -93,13 +94,13 @@ export function TechStack() {
                             className={styles.grid}
                         >
                             {technologies[activeTab as keyof typeof technologies].map((tech, index) => (
-                                <div key={index} className={styles.techItem}>
+                                <Link key={index} href="/technology" className={styles.techItem}>
                                     <div className={styles.iconWrapper}>
                                         {/* eslint-disable-next-line @next/next/no-img-element */}
                                         <img src={tech.icon} alt={tech.name} className={styles.techIcon} />
                                     </div>
                                     <span className={styles.techName}>{tech.name}</span>
-                                </div>
+                                </Link>
                             ))}
                         </motion.div>
                     </AnimatePresence>

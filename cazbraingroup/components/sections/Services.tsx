@@ -1,40 +1,13 @@
 "use client";
 
+import Link from "next/link";
 import { Smartphone, Globe, Gamepad2, Glasses, Monitor, Code } from "lucide-react";
+import { services as servicesData } from "@/data/services";
 import styles from "./Services.module.css";
 
-const services = [
-    {
-        icon: Smartphone,
-        title: "Mobile App Development",
-        description: "Native and cross-platform mobile apps tailored to your business needs."
-    },
-    {
-        icon: Globe,
-        title: "Web Development",
-        description: "Scalable and responsive web applications using modern frameworks."
-    },
-    {
-        icon: Gamepad2,
-        title: "Game Development",
-        description: "Immersive 2D and 3D games for mobile, PC, and consoles."
-    },
-    {
-        icon: Glasses,
-        title: "AR/VR Solutions",
-        description: "Cutting-edge Augmented and Virtual Reality experiences."
-    },
-    {
-        icon: Monitor,
-        title: "Enterprise Solutions",
-        description: "Robust software solutions to streamline your business operations."
-    },
-    {
-        icon: Code,
-        title: "Startup MVP",
-        description: "Quick and efficient MVP development to validate your ideas."
-    }
-];
+const iconMap: Record<string, React.ElementType> = {
+    Smartphone, Globe, Gamepad2, Glasses, Monitor, Code,
+};
 
 export function Services() {
     return (
@@ -48,15 +21,18 @@ export function Services() {
                 </div>
 
                 <div className={styles.grid}>
-                    {services.map((service, index) => (
-                        <div key={index} className={styles.card}>
-                            <div className={styles.iconWrapper}>
-                                <service.icon size={32} />
-                            </div>
-                            <h3 className={styles.cardTitle}>{service.title}</h3>
-                            <p className={styles.cardDescription}>{service.description}</p>
-                        </div>
-                    ))}
+                    {servicesData.map((service) => {
+                        const Icon = iconMap[service.icon];
+                        return (
+                            <Link key={service.id} href={`/services/${service.id}`} className={styles.card}>
+                                <div className={styles.iconWrapper}>
+                                    {Icon && <Icon size={32} />}
+                                </div>
+                                <h3 className={styles.cardTitle}>{service.title}</h3>
+                                <p className={styles.cardDescription}>{service.description}</p>
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
         </section>

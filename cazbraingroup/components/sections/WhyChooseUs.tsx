@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 import styles from "./WhyChooseUs.module.css";
@@ -27,23 +28,25 @@ export function WhyChooseUs() {
 
                         <div className={styles.grid}>
                             {features.map((feature, index) => (
-                                <div key={index} className={styles.item}>
+                                <Link key={index} href="/company" className={styles.item}>
                                     <CheckCircle2 className={styles.icon} size={24} />
                                     <span className={styles.text}>{feature}</span>
-                                </div>
+                                </Link>
                             ))}
                         </div>
                     </div>
 
                     <div className={styles.imageWrapper}>
-                        <Image
-                            src="/image/image 3.png"
-                            alt="Why Choose CazBrainGroup"
-                            width={600}
-                            height={500}
-                            className={styles.image}
-                            priority
-                        />
+                        <Link href="/company">
+                            <Image
+                                src="/image/image 3.png"
+                                alt="Why Choose CazBrainGroup"
+                                width={600}
+                                height={500}
+                                className={styles.image}
+                                priority
+                            />
+                        </Link>
                     </div>
                 </div>
             </div>

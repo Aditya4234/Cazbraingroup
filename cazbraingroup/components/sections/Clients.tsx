@@ -1,8 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import styles from "./Clients.module.css";
 
-// Placeholder for client logos - using text for now
 const clients = [
     "Microsoft", "Google", "BBC", "ITV", "Zinc", "Fantasy"
 ];
@@ -14,9 +14,9 @@ export function Clients() {
                 <p className={styles.label}>Trusted by leading companies worldwide</p>
                 <div className={styles.grid}>
                     {clients.map((client, index) => (
-                        <div key={index} className={styles.logoWrapper}>
+                        <Link key={index} href="/company" className={styles.logoWrapper}>
                             <span className={styles.logoText}>{client}</span>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

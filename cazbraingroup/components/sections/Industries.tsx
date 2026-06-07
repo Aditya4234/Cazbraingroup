@@ -1,13 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { Heart, Truck, GraduationCap, Smartphone, ArrowUpRight } from "lucide-react";
 import styles from "./Industries.module.css";
 
 const industries = [
-    { icon: Heart, name: "Healthcare" },
-    { icon: Smartphone, name: "Fintech" },
-    { icon: Truck, name: "Logistics" },
-    { icon: GraduationCap, name: "Education" },
+    { icon: Heart, name: "Healthcare", slug: "healthcare" },
+    { icon: Smartphone, name: "Fintech", slug: "fintech" },
+    { icon: Truck, name: "Logistics", slug: "logistics" },
+    { icon: GraduationCap, name: "Education", slug: "education" },
 ];
 
 export function Industries() {
@@ -25,7 +26,7 @@ export function Industries() {
 
                 <div className={styles.grid}>
                     {industries.map((item, index) => (
-                        <div key={index} className={styles.card}>
+                        <Link key={index} href="/solutions" className={styles.card}>
                             <div className={styles.arrowWrapper}>
                                 <ArrowUpRight size={20} />
                             </div>
@@ -33,7 +34,7 @@ export function Industries() {
                                 <item.icon size={40} strokeWidth={1.5} />
                             </div>
                             <h3 className={styles.cardTitle}>{item.name}</h3>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
