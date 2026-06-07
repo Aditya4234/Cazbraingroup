@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { caseStudies } from "@/data/caseStudies";
 import styles from "./CaseStudies.module.css";
 
 export function CaseStudies() {
@@ -18,27 +20,27 @@ export function CaseStudies() {
                 </div>
 
                 <div className={styles.showcase}>
-                    <div className={styles.card}>
-                        <div className={styles.content}>
-                            <h3 className={styles.projectTitle}>LabelXChange (B2B Fashion Marketplace)</h3>
-                            <p className={styles.projectDesc}>
-                                CazBrainGroup developed a custom iOS app for LabelXChange, a B2B fashion marketplace, that reduced product search time by 35%, enabled secure transactions, and increased buyer engagement.
-                            </p>
-                            <button className={styles.readMore}>
-                                Read Case Study <ArrowRight size={16} />
-                            </button>
-                        </div>
-                        <div className={styles.imagePlaceholder}>
-                            <Image
-                                src="/image/image2.png"
-                                alt="LabelXChange Case Study"
-                                width={500}
-                                height={400}
-                                className={styles.caseImage}
-                                priority
-                            />
-                        </div>
-                    </div>
+                    {caseStudies.map((project, index) => (
+                        <Link key={index} href={`/work/${project.slug}`} className={styles.card}>
+                            <div className={styles.content}>
+                                <span className="text-sm text-[var(--primary)] font-medium">{project.industry}</span>
+                                <h3 className={styles.projectTitle}>{project.title}</h3>
+                                <p className={styles.projectDesc}>{project.description}</p>
+                                <span className={styles.readMore}>
+                                    Read Case Study <ArrowRight size={16} />
+                                </span>
+                            </div>
+                            <div className={styles.imagePlaceholder}>
+                                <Image
+                                    src={project.image}
+                                    alt={project.title}
+                                    width={500}
+                                    height={400}
+                                    className={styles.caseImage}
+                                />
+                            </div>
+                        </Link>
+                    ))}
                 </div>
             </div>
         </section>

@@ -88,6 +88,13 @@
     display: flex;
     gap: 1rem;
     align-items: flex-start;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s;
+}
+
+.item:hover {
+    opacity: 0.8;
 }
 
 .bullet {

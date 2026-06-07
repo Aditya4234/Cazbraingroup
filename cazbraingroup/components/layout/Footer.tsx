@@ -35,7 +35,7 @@ export function Footer() {
                     <div className={styles.column}>
                         <h4 className={styles.heading}>Company</h4>
                         <ul className={styles.list}>
-                            <li><Link href="/about">About Us</Link></li>
+                            <li><Link href="/company">About Us</Link></li>
                             <li><Link href="/work">Our Work</Link></li>
                             <li><Link href="/blog">Blog</Link></li>
                             <li><Link href="/contact">Contact Us</Link></li>

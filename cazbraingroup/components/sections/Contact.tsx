@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle } from "lucide-react";
 import styles from "./Contact.module.css";
 
 export function Contact() {
@@ -11,21 +11,34 @@ export function Contact() {
         message: ""
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+    const [errorMsg, setErrorMsg] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setStatus("idle");
+        setErrorMsg("");
 
-        const subject = encodeURIComponent(`Contact from ${formData.name}`);
-        const body = encodeURIComponent(
-            `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-        );
-        window.location.href = `mailto:adityagupta200807@gmail.com?subject=${subject}&body=${body}`;
+        try {
+            const res = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
 
-        setTimeout(() => {
-            setIsSubmitting(false);
+            if (!res.ok) {
+                throw new Error("Failed to send message");
+            }
+
+            setStatus("success");
             setFormData({ name: "", email: "", message: "" });
-        }, 1000);
+        } catch {
+            setStatus("error");
+            setErrorMsg("Something went wrong. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -96,6 +109,18 @@ export function Contact() {
                             />
                         </div>
 
+                        {status === "success" && (
+                            <div className="flex items-center gap-2 text-green-600 bg-green-50 px-4 py-3 rounded-md">
+                                <CheckCircle2 size={20} />
+                                <span>Message sent successfully! We'll get back to you soon.</span>
+                            </div>
+                        )}
+                        {status === "error" && (
+                            <div className="flex items-center gap-2 text-red-600 bg-red-50 px-4 py-3 rounded-md">
+                                <AlertCircle size={20} />
+                                <span>{errorMsg}</span>
+                            </div>
+                        )}
                         <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
                             {isSubmitting ? "Sending..." : (
                                 <>

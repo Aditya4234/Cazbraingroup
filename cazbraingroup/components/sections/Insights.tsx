@@ -1,16 +1,14 @@
 "use client";
 
-import { FileText } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import { blogPosts } from "@/data/blog";
 import styles from "./Insights.module.css";
 
-const articles = [
-    "Software Development: Definition, Types, Use Cases, Methodologies, And Process",
-    "10 Crucial Roles and Responsibilities In a Software Development Team (+ Best Practices)",
-    "KPIs for Software Development That Help Enhance the Development Process"
-];
-
 export function Insights() {
+    const articles = blogPosts.slice(0, 3);
+
     return (
         <section className="section">
             <div className="container">
@@ -28,15 +26,22 @@ export function Insights() {
                     </div>
 
                     <div className={styles.contentColumn}>
-                        <h2 className={styles.categoryTitle}>Software</h2>
+                        <h2 className={styles.categoryTitle}>Latest Insights</h2>
                         <div className={styles.list}>
                             {articles.map((article, index) => (
-                                <div key={index} className={styles.item}>
+                                <Link key={index} href={`/blog/${article.slug}`} className={styles.item}>
                                     <div className={styles.bullet}></div>
-                                    <h3 className={styles.articleTitle}>{article}</h3>
-                                </div>
+                                    <div className="flex-1">
+                                        <h3 className={styles.articleTitle}>{article.title}</h3>
+                                        <span className="text-sm text-muted-foreground">{article.category} · {article.readTime}</span>
+                                    </div>
+                                    <ArrowRight size={16} className="text-muted-foreground shrink-0" />
+                                </Link>
                             ))}
                         </div>
+                        <Link href="/blog" className="inline-flex items-center gap-2 text-[var(--primary)] font-medium mt-6 hover:underline">
+                            View All Articles <ArrowRight size={16} />
+                        </Link>
                     </div>
                 </div>
             </div>
